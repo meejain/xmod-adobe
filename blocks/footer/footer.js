@@ -1,4 +1,3 @@
-import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 const isMobile = window.matchMedia('(max-width: 599px)');
@@ -367,11 +366,14 @@ function buildBottomBar(section) {
  * @param {Element} block The footer block element
  */
 export default async function decorate(block) {
-  const footerMeta = getMetadata('footer');
-  const footerPath = footerMeta
-    ? new URL(footerMeta, window.location).pathname
-    : '/footer';
-  const fragment = await loadFragment(footerPath);
+  // Use root path so we request /footer.plain.html (not content/footer.plain.html)
+  const path = '/footer';
+  const fragment = await loadFragment(path);
+
+  if (!fragment?.firstElementChild) {
+    block.textContent = '';
+    return;
+  }
 
   block.textContent = '';
   const footer = document.createElement('div');

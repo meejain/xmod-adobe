@@ -1,4 +1,3 @@
-import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 const isDesktop = window.matchMedia('(min-width: 900px)');
@@ -266,9 +265,14 @@ function buildAppsLauncher() {
 /* ── main decorate ────────────────────────────────── */
 
 export default async function decorate(block) {
-  const navMeta = getMetadata('nav');
-  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
-  const fragment = await loadFragment(navPath);
+  // Use root paths so we request /nav.plain.html (not content/nav.plain.html)
+  const path = '/nav';
+  const fragment = await loadFragment(path);
+
+  if (!fragment?.firstElementChild) {
+    block.textContent = '';
+    return;
+  }
 
   block.textContent = '';
   const nav = document.createElement('nav');
