@@ -305,7 +305,9 @@ export default async function decorate(block) {
       li.setAttribute('aria-expanded', 'false');
 
       // wrap label text in a toggle button
-      const label = li.childNodes[0];
+      // AEM wraps li text in <p>, local .plain.html may use bare text nodes
+      const labelP = Array.from(li.children).find((c) => c.tagName === 'P' && !c.querySelector('ul'));
+      const label = labelP || li.childNodes[0];
       const toggleBtn = document.createElement('button');
       toggleBtn.className = 'nav-drop-toggle';
       toggleBtn.setAttribute('type', 'button');
