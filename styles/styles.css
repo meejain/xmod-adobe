@@ -20,8 +20,8 @@
   --link-hover-color: #1d3ecf;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  --body-font-family: 'Adobe Clean', adobe-clean, 'Trebuchet MS', sans-serif;
+  --heading-font-family: 'Adobe Clean', adobe-clean, 'Trebuchet MS', sans-serif;
 
   /* body sizes */
   --body-font-size-m: 22px;
@@ -306,13 +306,33 @@ main > .section > div {
   padding: 0 24px;
 }
 
+/* Add vertical spacing between block wrappers in a section */
+main > .section > div + div {
+  margin-top: 24px;
+}
+
 main > .section:first-of-type {
   margin-top: 0;
+}
+
+/* Footnote section (last section before footer, no blocks) */
+main > .section:last-of-type .default-content-wrapper p {
+  font-size: 12px;
+  color: #707070;
+  line-height: 1.5;
 }
 
 @media (width >= 900px) {
   main > .section > div {
     padding: 0 32px;
+  }
+
+  main > .section > div + div {
+    margin-top: 32px;
+  }
+
+  main .section.dark.hero-container .cards-wrapper {
+    padding: 0 56px 48px;
   }
 }
 
@@ -322,4 +342,89 @@ main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
   padding: 40px 0;
+}
+
+main .section.dark {
+  background-color: #1b1b1b;
+  color: #fff;
+  margin: 0;
+  padding: 40px 0;
+}
+
+/* Dark hero section: wallpaper image covers full section */
+main .section.dark.hero-container {
+  position: relative;
+  isolation: isolate;
+  padding: 0;
+}
+
+main .section.dark.hero-container > div {
+  max-width: unset;
+  padding: 0 24px;
+}
+
+main .section.dark.hero-container .cards-wrapper {
+  padding: 0 32px 40px;
+}
+
+main .section.dark a:any-link {
+  color: #fff;
+}
+
+main .section.dark a.button.primary {
+  background-color: #fff;
+  border-color: #fff;
+  color: #1b1b1b;
+}
+
+main .section.dark a.button.primary:hover {
+  background-color: #e0e0e0;
+  border-color: #e0e0e0;
+}
+
+main .section.dark a.button.secondary {
+  border-color: #fff;
+  color: #fff;
+  background-color: transparent;
+}
+
+main .section.dark a.button.secondary:hover {
+  background-color: rgb(255 255 255 / 10%);
+}
+
+/* Masonry grid section (cards + columns together) */
+main > .section.cards-container.columns-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 24px;
+}
+
+main > .section.cards-container.columns-container > div {
+  max-width: unset;
+  padding: 0;
+  margin: 0;
+}
+
+main > .section.cards-container.columns-container > div + div {
+  margin-top: 24px;
+}
+
+@media (width >= 600px) {
+  main > .section.cards-container.columns-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 500px 650px;
+    gap: 32px;
+    padding: 32px;
+  }
+
+  main > .section.cards-container.columns-container > div + div {
+    margin-top: 0;
+  }
+}
+
+@media (width >= 900px) {
+  main > .section.cards-container.columns-container {
+    padding: 32px 56px;
+  }
 }
