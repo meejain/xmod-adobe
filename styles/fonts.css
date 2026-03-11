@@ -1,4 +1,39 @@
 /* stylelint-disable max-line-length */
+
+/* Adobe Clean - Primary body font */
+@font-face {
+  font-family: 'Adobe Clean';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/adobe-clean-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Adobe Clean';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/adobe-clean-bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Adobe Clean';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('../fonts/adobe-clean-extrabold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Adobe Clean';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('../fonts/adobe-clean-black.woff2') format('woff2');
+}
+
+/* Roboto - Fallback fonts */
 @font-face {
   font-family: roboto-condensed;
   font-style: normal;
