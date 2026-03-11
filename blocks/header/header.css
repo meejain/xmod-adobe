@@ -500,8 +500,6 @@ header nav .apps-footer-icon {
 @media (width >= 900px) {
   header .nav-wrapper {
     position: relative;
-    max-width: 100%;
-    padding: 0;
   }
 
   header nav {
@@ -509,9 +507,7 @@ header nav .apps-footer-icon {
     justify-content: space-between;
     align-items: center;
     gap: 0;
-    max-width: 100%;
-    margin: 0;
-    padding: 0 16px;
+    padding: 0 24px;
   }
 
   header nav[aria-expanded='true'] {
@@ -526,7 +522,7 @@ header nav .apps-footer-icon {
   /* brand */
   header .nav-brand {
     flex: 0 0 auto;
-    margin-right: 36px;
+    margin-right: 24px;
   }
 
   /* sections row */
